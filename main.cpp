@@ -1,3 +1,14 @@
+/*
+
+Team Members =>
+
+   Noman,Asif Al -> 14-27134-2 [E1]
+   Arif,Ashique Al -> 14-27017-2 [E1]
+   Raihan Faisal -> 14-27108-2 [E2]
+   Ruman, Md Saifuddin -> 14-27039-3 [E2]
+
+*/
+
 #include <stdio.h>
 #include <windows.h>
 #include <math.h>
