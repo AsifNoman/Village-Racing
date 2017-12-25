@@ -19,7 +19,7 @@ Team Members =>
 #include <iostream>
 using namespace std;
 
-float win=0.0,lose=0.0;
+float win=0,lose=0,score=0;
 int screenTime = 0;
 int height = 100, width = 100 ;
 int window_width = 620, window_height = 480;
@@ -49,6 +49,24 @@ void myInit (void)
 void reshape(int w,int h)
 {
    glutReshapeWindow( 1348, 700);
+}
+
+void drawScoreValue (void * font, int s,int spc, float x, float y)
+{
+     glRasterPos2f(x, y);
+	 glColor3f(255, 255, 255);
+     int k=0,j=0;
+     while(s>9)
+        {
+            k=s%10;
+            glRasterPos2f((x-(j*spc)), y);
+            glutBitmapCharacter (font, 48+k);
+            j++;
+            s=s/10;
+
+        }
+        glRasterPos2f((x-(j*spc)), y);
+        glutBitmapCharacter (font, 48+s);
 }
 
 // ***********************************HOME PAGE CONTENTS **************************************
@@ -429,13 +447,25 @@ void winWindow()
 {
     glClear (GL_COLOR_BUFFER_BIT);
     winText(GLUT_BITMAP_TIMES_ROMAN_24,"CONGRATULATION !! YOU HAVE WON. :)",240,265);
+    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With COIN:",240,225);
+    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With Bush:",240,195);
+    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Total Score:",240,165);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,win,6,338,224);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,lose,6,330,194);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,score,6,305,163);
     glFlush();
 }
 
 void looseWindow()
 {
     glClear (GL_COLOR_BUFFER_BIT);
-    looseText(GLUT_BITMAP_TIMES_ROMAN_24,"SORRY , YOU HAVE LOST. :(",240,265);
+    looseText(GLUT_BITMAP_TIMES_ROMAN_24,"SORRY, YOU HAVE LOST. :)",240,265);
+    looseText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With COIN:",240,225);
+    looseText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With Bush:",240,195);
+    looseText(GLUT_BITMAP_TIMES_ROMAN_24,"Total Score:",240,165);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,win,6,338,224);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,lose,6,330,194);
+    drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,score,6,305,163);
     glFlush();
 }
 
@@ -444,9 +474,11 @@ void countTime()
 {
     screenTime = clock()/1000;
 
+    score = win - lose;
+
     if( screenTime == 60 )
     {
-        if(win >= lose )
+        if(win > lose )
         {
             glutDisplayFunc(winWindow);
         }
@@ -455,24 +487,11 @@ void countTime()
             glutDisplayFunc(looseWindow);
         }
     }
-}
 
-void drawScoreValue (void * font, int s,int spc, float x, float y)
-{
-     glRasterPos2f(x, y);
-	 glColor3f(255, 255, 255);
-     int k=0,j=0;
-     while(s>9)
-        {
-            k=s%10;
-            glRasterPos2f((x-(j*spc)), y);
-            glutBitmapCharacter (font, 48+k);
-            j++;
-            s=s/10;
-
-        }
-        glRasterPos2f((x-(j*spc)), y);
-        glutBitmapCharacter (font, 48+s);
+    if( score <= 0)
+    {
+        score = 0;
+    }
 }
 
 
@@ -553,11 +572,6 @@ void translate()
     }
 
     Sleep(100);
-
-    /*for( int i=0;i<10000000;i++)
-    {
-        glutPostRedisplay();
-    }*/
 
    glutPostRedisplay();
 
