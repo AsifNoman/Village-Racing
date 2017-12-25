@@ -2,10 +2,10 @@
 
 Team Members =>
 
-   Noman,Asif Al -> 14-27134-2 [E1]
-   Arif,Ashique Al -> 14-27017-2 [E1]
-   Raihan Faisal -> 14-27108-2 [E2]
-   Ruman, Md Saifuddin -> 14-27039-3 [E2]
+   Noman,Asif Al -> 14-27134-2 [E2]
+   Arif,Ashique Al -> 14-27017-2 [E2]
+   Raihan Faisal -> 14-27108-2 [E1]
+   Ruman, Md Saifuddin -> 14-27039-3 [E1]
 
 */
 
