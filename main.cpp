@@ -434,7 +434,7 @@ glEnd();
 glFlush ();
 
     startText(GLUT_BITMAP_TIMES_ROMAN_24,"START GAME [p]",270,265);
-    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"ABOUT US ",270,230);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"ABOUT US [u] ",270,230);
     exitText(GLUT_BITMAP_TIMES_ROMAN_24,"EXIT [x] ",270,195);
     glFlush();
 }
@@ -443,12 +443,22 @@ glFlush ();
 //********************************************GAME PLAY CONTENTS**********************************************
 //********************************************GAME PLAY CONTENTS**********************************************
 
+void aboutUs()
+{
+    glClear (GL_COLOR_BUFFER_BIT);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Noman,Asif Al => 14-27134-2 [E2]",240,265);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Arif, Ashique Al => 14-27017-2 [E2]",240,225);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Raihan, Faisal => 14-27108-2 [E1]",240,185);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Ruman, Md Saifuddin => 14-27039-2 [E1]",240,145);
+    glFlush();
+}
+
 void winWindow()
 {
     glClear (GL_COLOR_BUFFER_BIT);
     winText(GLUT_BITMAP_TIMES_ROMAN_24,"CONGRATULATION !! YOU HAVE WON. :)",240,265);
-    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With COIN:",240,225);
-    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With Bush:",240,195);
+    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With COIN: ",240,225);
+    winText(GLUT_BITMAP_TIMES_ROMAN_24,"Collide With Bush: ",240,195);
     winText(GLUT_BITMAP_TIMES_ROMAN_24,"Total Score:",240,165);
     drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,win,6,338,224);
     drawScoreValue(GLUT_BITMAP_TIMES_ROMAN_24,lose,6,330,194);
@@ -504,23 +514,23 @@ void drawScore (void * font, char *s, float x, float y){
 
 void keyboard(unsigned char key, int x, int y)
 {
-    if(key == 'a')
+    if(key == 'a' || key == 'A')
     {
         mx -= 10;
     }
-    else if(key == 'd')
+    else if(key == 'd' || key == 'D')
     {
         mx += 10;
     }
-    else if(key == 'p')
+    else if(key == 'p' || key == 'P')
     {
         windowFlag = 1;
     }
-    else if(key == 'i')
+    else if(key == 'u' || key == 'U')
     {
-        //about
+        glutDisplayFunc(aboutUs);
     }
-    else if(key == 'x')
+    else if(key == 'x' || key == 'X')
     {
         exit(0);
     }
