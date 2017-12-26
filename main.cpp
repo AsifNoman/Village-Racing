@@ -4,8 +4,8 @@ Team Members =>
 
    Noman,Asif Al -> 14-27134-2 [E2]
    Arif,Ashique Al -> 14-27017-2 [E2]
-   Raihan Faisal -> 14-27108-2 [E1]
-   Ruman, Md Saifuddin -> 14-27039-3 [E1]
+   Raihan Faisal -> 14-27108-2 [F]
+   Ruman, Md Saifuddin -> 14-27039-3 [F]
 
 */
 
@@ -448,8 +448,8 @@ void aboutUs()
     glClear (GL_COLOR_BUFFER_BIT);
     aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Noman,Asif Al => 14-27134-2 [E2]",240,265);
     aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Arif, Ashique Al => 14-27017-2 [E2]",240,225);
-    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Raihan, Faisal => 14-27108-2 [E1]",240,185);
-    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Ruman, Md Saifuddin => 14-27039-2 [E1]",240,145);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Raihan, Faisal => 14-27108-2 [F]",240,185);
+    aboutText(GLUT_BITMAP_TIMES_ROMAN_24,"Ruman, Md Saifuddin => 14-27039-2 [F]",240,145);
     glFlush();
 }
 
